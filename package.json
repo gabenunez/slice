@@ -1,0 +1,23 @@
+{
+  "name": "slice",
+  "version": "1.0.0",
+  "description": "Get that cheapest piece o' pie.",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=development && nodemon ./server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabenunez/slice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabenunez/slice/issues"
+  },
+  "homepage": "https://github.com/gabenunez/slice#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
