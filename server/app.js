@@ -35,7 +35,7 @@ const emailNotifier = notifier({
 });
 
 emailNotifier.on('end', () => emailNotifier.start())
-  .on('mail', async mail => { // mail.subject, mail.from[0].address, mail.html?
+  .on('mail', async mail => {
       await addEmailtoDB(mail.subject, mail.from[0].address, mail.html)
     })
   .start();
