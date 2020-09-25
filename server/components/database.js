@@ -10,7 +10,7 @@ exports.addEmailtoDB = async (emailSubject, emailAddress, emailHTML) => {
 
         await db.query(
             "INSERT INTO emails(email_address, email_subject, email_link) VALUES($1, $2, $3);", 
-            [emailAddress, emailSubject, emailURL]
+            [emailAddress.toLowerCase(), emailSubject, emailURL]
         );
     } catch (error) {
         throw new Error('Error adding email to DB', error);
