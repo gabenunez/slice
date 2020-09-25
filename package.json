@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/gabenunez/slice#readme",
   "dependencies": {
+    "aws-sdk": "^2.759.0",
+    "dayjs": "^1.8.36",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mail-notifier": "^0.5.0",

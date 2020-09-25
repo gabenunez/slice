@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const port =  process.env.PORT || 1818;
 const notifier = require('mail-notifier');
-
+const { addEmailtoDB } = require('./components/database');
+    
 app.use(express.json());
 
 // Handle API Newsletter Email Requests
@@ -30,7 +31,7 @@ const emailNotifier = notifier({
 });
 
 emailNotifier.on('end', () => emailNotifier.start())
-  .on('mail', mail => {
-      console.log(mail);
+  .on('mail', async mail => { // mail.subject, mail.from[0].address, mail.html?
+      await addEmailtoDB(mail.subject, mail.from[0].address, mail.html)
     })
   .start();
