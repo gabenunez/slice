@@ -4,7 +4,11 @@ const app = express();
 const port =  process.env.PORT || 1818;
 const notifier = require('mail-notifier');
 const { addEmailtoDB } = require('./components/database');
-    
+
+// Handle static assets, like logos :D
+app.use(express.static(`${__dirname}/public`));
+
+// Transform dat JSON
 app.use(express.json());
 
 // Handle API Newsletter Email Requests
