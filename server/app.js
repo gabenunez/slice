@@ -12,7 +12,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
 
 // Handle API Newsletter Email Requests
-app.use('/api/emails', require('./routes/shopify'));
+app.use('/api/emails', require('./routes/emails'));
 
 // 404. Handle when a path doesn't exist.
 app.use((req, res) => {
