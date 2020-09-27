@@ -1,10 +1,10 @@
 {
-  "name": "slice",
+  "name": "slice-server",
   "version": "1.0.0",
   "description": "Get that cheapest piece o' pie.",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=development && nodemon ./server/app.js",
+    "start": "set NODE_ENV=development && nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
