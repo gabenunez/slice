@@ -1,6 +1,6 @@
 const db = require('../db');
 const { uploadFileToS3 } = require('./aws');
-const dayjs = require('dayjs')
+const dayjs = require('dayjs');
 
 exports.addEmailtoDB = async (emailSubject, emailAddress, emailHTML) => {
     try {
