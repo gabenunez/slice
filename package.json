@@ -1,0 +1,25 @@
+{
+  "name": "slice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabenunez/slice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabenunez/slice/issues"
+  },
+  "homepage": "https://github.com/gabenunez/slice#readme"
+}
