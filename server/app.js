@@ -36,6 +36,10 @@ const emailNotifier = notifier({
 
 emailNotifier.on('end', () => emailNotifier.start())
   .on('mail', async mail => {
-      await addEmailtoDB(mail.subject, mail.from[0].address, mail.html)
+      try {
+        await addEmailtoDB(mail.subject, mail.from[0].address, mail.html)
+      } catch (error) {
+        console.error(error)
+      }
     })
   .start();
