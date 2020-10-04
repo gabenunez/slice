@@ -14,7 +14,21 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     height: '100%',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    padding: '100px 10px',
+    clipPath: 'polygon(0 0, 0% 100%, 100% 50%)',
+    [theme.breakpoints.down('md')]: {
+      clipPath: 'none',
+      borderRadius: '50%',
+      border: 'inset #e1af7a 10px',
+      justifyContent: 'center',
+      borderLeft: 'inset #e1af7a 10px'
+    },
+    alignItems: 'center',
+    backgroundColor: '#ffeea9',
+    backgroundPosition: '0 0, 50px 50px',
+    backgroundSize: '150px 150px',
+    borderLeft: 'inset #e1af7a 40px'
   },
   details: {
     display: 'flex',
@@ -23,32 +37,37 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flex: '1 0 auto',
   },
-  cover: {
+  cardImage: {
     width: 151,
+    objectFit: 'scale-down'
   },
+  subject: {
+    maxWidth: '75%',
+    fontSize: 16,
+    fontWeight: 800
+  }
 }));
 
 export default function Email(props) {
   const classes = useStyles();
-
   return (
-    <Grid item sm={6} xs={12} spacing={3}>
-        <Card xs={12} className={classes.root}>
+    <Grid item lg={6} xs={12} onClick={() => props.setCurrentEmailandOpen(props.info.email_link)}>
+      <Card xs={12} className={classes.root}>
         <CardMedia
-        className={classes.cover}
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/1200px-Domino%27s_pizza_logo.svg.png"
-        title="Live from space album cover"
+        component="img"
+        alt="Contemplative Reptile"
+        height="140"
+        image={props.info.logo}
+        title="Contemplative Reptile"
+        className={classes.cardImage}
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h6" variant="h6">
+          <Typography className={classes.subject} component="h3" variant="h3">
             {props.info.email_subject}
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            {props.info.company_name}
-          </Typography>
           <Typography className={classes.date} variant="subtitle2" color="textSecondary">
-            { dayjs(props.info.timestamp).fromNow() }
+            Received { dayjs(props.info.timestamp).fromNow() }
           </Typography>
         </CardContent>
       </div>
