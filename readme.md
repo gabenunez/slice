@@ -4,6 +4,8 @@ I found it quite sickening that there was no central location on the internet to
 
 And BAM! It came it came to me, let's just source all the pizza newsletters in my local area and make it appear all on one screen! This does exactly that :)
 
+![Screenshot](https://raw.githubusercontent.com/gabenunez/slice/master/screenshot.JPG)
+
 ## Development
 
 - NPM Install
