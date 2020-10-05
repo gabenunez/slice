@@ -15,11 +15,7 @@ app.use(express.json());
 // Handle API Newsletter Email Requests
 app.use('/api/emails', require('./routes/emails'));
 
-// 404. Handle when a path doesn't exist.
-app.use((req, res) => {
-    res.status(404).json({code: "404", error: "Sorry, that's an invalid path."});
-});
-
+// Handle production stuff
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '../client/build')));
@@ -28,6 +24,11 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
 }
+
+// 404. Handle when a path doesn't exist.
+app.use((req, res) => {
+    res.status(404).json({code: "404", error: "Sorry, that's an invalid path."});
+});
 
 app.listen(port, () => {
     if(process.env.NODE_ENV) {
