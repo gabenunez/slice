@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const port =  process.env.PORT || 1818;
+const path = require('path');
 const notifier = require('mail-notifier');
 const { addEmailtoDB } = require('./components/database');
 
